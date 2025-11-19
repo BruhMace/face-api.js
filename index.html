@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<body style="background: white"></body>
+<script>
+console.log(faceapi.nets)
+const img = nn.create('img').set('src', 'https://as2.ftcdn.net/jpg/02/67/99/59/1000_F_267995900_qg8jfTCHvCijDkXC5HOlPBK0pZ0i0dlh.jpg')
+
+async function loadModels() {
+  await faceapi.nets.tinyFaceDetector.loadFromUri('/models')
+  await faceapi.nets.faceLandmark68Net.loadFromUri('/models')
+  await faceapi.nets.faceRecognitionNet.loadFromUri('/models')
+}
+  
+async function detect(){
+  const detections = await faceapi.detectSingleFace(img)
+  console.log(detections)
+}
+  
+  
+  
+//detect()
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+</script>
